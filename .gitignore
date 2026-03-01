@@ -1,30 +1,45 @@
-# Node modules
-node_modules/
-npm-debug.log
-yarn-error.log
+# Environment variables (use .env.example for template)
+docker/.env
+.env
+.env.local
 
-# Build files
-dist/
-build/
-*.min.js
-*.min.css
+# SSL/TLS certificates and keys (sensitive files)
+ssl/certs/*.pem
+ssl/certs/*.crt
+ssl/certs/*.cer
+ssl/keys/*.key
+ssl/keys/*.pem
+ssl/**/*.pem
+ssl/**/*.key
 
-# IDE
-.vscode/
-.idea/
+# OS files
+.DS_Store
+Thumbs.db
 *.swp
 *.swo
 *~
 
-# Environment
-.env
-.env.local
-.env.*.local
+# Editor files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
 
-# OS
-.DS_Store
-Thumbs.db
+# Node modules (if using npm/webpack)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Docker
+.dockerignore
 
 # Logs
-logs/
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+tmp/
+temp/
+*.tmp
