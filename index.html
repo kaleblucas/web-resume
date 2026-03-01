@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaleb Lucas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="theme-override.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#top" class="nav-logo">kaleb lucas</a>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="#about">about</a></li>
+                <li><a href="#skills">skills</a></li>
+                <li><a href="#work">work</a></li>
+                <li><a href="#contact">contact</a></li>
+                <li class="nav-dropdown">
+                    <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                        tools <span class="nav-dropdown-caret">&#x2304;</span>
+                    </button>
+                    <ul class="nav-dropdown-menu" role="menu">
+                        <li role="none"><a href="#" class="dark-mode-toggle" role="menuitem">dark mode</a></li>
+                        <li role="none"><a href="json-formatter.html" role="menuitem">json formatter</a></li>
+                        <li role="none"><a href="xml-formatter.html" role="menuitem">xml formatter</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="grid">
+                    <div class="hero-content fade-in">
+                        <div class="hero-label">Developer</div>
+                        <h1 class="hero-title">Kaleb<br>Lucas</h1>
+                        <h2 class="hero-subtitle">QA Engineering<br>& DevOps</h2>
+                        <p class="hero-description">
+                            Building reliable systems through comprehensive automation
+                            and infrastructure management. Precision-driven approach to quality assurance.
+                        </p>
+                        <a href="#work" class="hero-cta">View Work Experience</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <div class="grid">
+                    <div class="about-content">
+                        <h2 class="section-title fade-in">About</h2>
+                        <div class="about-text fade-in">
+                            <p>
+                                Results-driven QA engineer specializing in test automation frameworks
+                                and infrastructure management. I combine technical precision with
+                                collaborative leadership to deliver high-quality solutions that scale.
+                            </p>
+                            <p>
+                                My expertise spans comprehensive test automation solutions,
+                                pipeline optimization, and self-managed infrastructure environments.
+                                When not automating tests, I'm building tools that make development
+                                teams more efficient.
+                            </p>
+                            <p>
+                                Passionate about clean code, reliable systems, and the intersection
+                                of quality assurance with modern development practices.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DiSC Profile -->
+                <div class="disc-wrapper fade-in">
+
+                    <div class="disc-blurbs-col">
+                        <p class="disc-eyebrow">DiSC Profile &mdash; iD</p>
+                        <div class="disc-blurbs">
+
+                            <!-- Energetic Starter — lightning bolt -->
+                            <div class="disc-blurb fade-in">
+                                <span class="disc-blurb-icon" aria-hidden="true">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                                    </svg>
+                                </span>
+                                <div>
+                                    <strong>Energetic Starter</strong>
+                                    <p>Jumps into new challenges with enthusiasm, generates momentum quickly, and keeps teams moving forward.</p>
+                                </div>
+                            </div>
+
+                            <!-- Persuasive Communicator — speech bubble -->
+                            <div class="disc-blurb fade-in">
+                                <span class="disc-blurb-icon" aria-hidden="true">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                    </svg>
+                                </span>
+                                <div>
+                                    <strong>Persuasive Communicator</strong>
+                                    <p>Comfortable pitching ideas, rallying buy-in, and translating complex technical concepts for any audience.</p>
+                                </div>
+                            </div>
+
+                            <!-- Results-Oriented — target/crosshair -->
+                            <div class="disc-blurb fade-in">
+                                <span class="disc-blurb-icon" aria-hidden="true">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <circle cx="12" cy="12" r="6"/>
+                                        <circle cx="12" cy="12" r="2"/>
+                                    </svg>
+                                </span>
+                                <div>
+                                    <strong>Results-Oriented</strong>
+                                    <p>Driven by outcomes over process &mdash; pushes to ship, deliver, and measure real impact.</p>
+                                </div>
+                            </div>
+
+                            <!-- Collaborative by Nature — people/network -->
+                            <div class="disc-blurb fade-in">
+                                <span class="disc-blurb-icon" aria-hidden="true">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="9" cy="7" r="4"/>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                    </svg>
+                                </span>
+                                <div>
+                                    <strong>Collaborative by Nature</strong>
+                                    <p>Thrives in team environments, builds rapport easily, and draws energy from working alongside others.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="disc-graphic-col">
+                        <!--
+                            Quadrant layout (viewBox 280×280, center 140,140, radius 130):
+                              D  = top-left     → arc from top (140,10) to left (10,140)
+                              i  = top-right    → arc from right (270,140) to top (140,10)
+                              C  = bottom-left  → arc from left (10,140) to bottom (140,270)
+                              S  = bottom-right → arc from bottom (140,270) to right (270,140)
+
+                            D/i boundary = vertical axis, top half (x=140, y=10..140)
+                            Midpoint of that segment = (140, 75)
+                        -->
+                        <svg class="disc-svg" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg" aria-label="DiSC quadrant chart showing iD profile position" role="img">
+                            <!-- Quadrant fills -->
+                            <!-- D: top-left — center → top → left -->
+                            <path d="M140,140 L140,10 A130,130 0 0,0 10,140 Z"   class="disc-q disc-q-d"/>
+                            <!-- i: top-right — center → right → top -->
+                            <path d="M140,140 L270,140 A130,130 0 0,0 140,10 Z"  class="disc-q disc-q-i"/>
+                            <!-- C: bottom-left — center → left → bottom -->
+                            <path d="M140,140 L10,140 A130,130 0 0,0 140,270 Z"  class="disc-q disc-q-c"/>
+                            <!-- S: bottom-right — center → bottom → right -->
+                            <path d="M140,140 L140,270 A130,130 0 0,0 270,140 Z" class="disc-q disc-q-s"/>
+
+                            <!-- Axis lines -->
+                            <line x1="140" y1="10"  x2="140" y2="270" class="disc-axis"/>
+                            <line x1="10"  y1="140" x2="270" y2="140" class="disc-axis"/>
+
+                            <!-- Outer ring -->
+                            <circle cx="140" cy="140" r="130" class="disc-ring"/>
+
+                            <!-- Quadrant labels -->
+                            <text x="73"  y="88"  class="disc-label">D</text>
+                            <text x="207" y="88"  class="disc-label">i</text>
+                            <text x="73"  y="200" class="disc-label">C</text>
+                            <text x="207" y="200" class="disc-label">S</text>
+
+                            <!-- iD dot — exact midpoint of D/i boundary (vertical axis top half) -->
+                            <circle cx="140" cy="75" r="13" class="disc-dot"/>
+                            <text x="140" y="75" class="disc-dot-label" dominant-baseline="central" text-anchor="middle">iD</text>
+                        </svg>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title fade-in">Technical Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-category fade-in">
+                        <h3>Test Automation</h3>
+                        <ul>
+                            <li>Selenium</li>
+                            <li>Playwright</li>
+                            <li>Page Object Model</li>
+                            <li>API Testing</li>
+                            <li>Cross-browser Testing</li>
+                            <li>Data-driven Testing</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category fade-in">
+                        <h3>Development</h3>
+                        <ul>
+                            <li>Java</li>
+                            <li>SQL</li>
+                            <li>Git Version Control</li>
+                            <li>Jenkins CI/CD</li>
+                            <li>Code Review</li>
+                            <li>Agile Methodologies</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category fade-in">
+                        <h3>Infrastructure</h3>
+                        <ul>
+                            <li>Docker</li>
+                            <li>System Deployment</li>
+                            <li>Linux Administration</li>
+                            <li>Proxmox VE</li>
+                            <li>System Monitoring</li>
+                            <li>Backup &amp; Recovery</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category fade-in">
+                        <h3>AI</h3>
+                        <ul>
+                            <li>Prompt Engineering</li>
+                            <li>Agentic AI Workflows</li>
+                            <li>AI-assisted Development</li>
+                            <li>LLM Tool Integration</li>
+                            <li>Workflow Automation</li>
+                            <li>Context Engineering</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="work" class="section">
+            <div class="container">
+                <h2 class="section-title fade-in">Work Experience</h2>
+                <div class="projects-grid">
+
+                    <div class="project-card fade-in">
+                        <div class="project-card-meta">
+                            <span class="project-tenure">Oct. 2023 &mdash; Present</span>
+                            <span class="project-location">Remote</span>
+                        </div>
+                        <h3>Quavo Fraud &amp; Disputes
+                            <span class="project-role">Lead, Automation Engineer</span>
+                        </h3>
+                        <ul class="project-bullets">
+                            <li>Fintech platform processing nearly 1 million disputed transactions monthly, built on PEGA.</li>
+                            <li>Designed a risk-based regression strategy pairing broad coverage with reduced manual execution overhead.</li>
+                            <li>Developed tactics to migrate assertions from Pega to a Java-based test framework.</li>
+                            <li>Refined the vision and roadmap for the test automation development team.</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span>Risk-based Testing</span>
+                            <span>Planning</span>
+                            <span>Java</span>
+                            <span>AI</span>
+                            <span>System Building</span>
+                            <span>PEGA</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card fade-in">
+                        <div class="project-card-meta">
+                            <span class="project-tenure">Feb. 2022 &mdash; Sept. 2023</span>
+                            <span class="project-location">Kansas City, MO</span>
+                        </div>
+                        <h3>VML
+                            <span class="project-role">Technology Specialist, Automation of Quality</span>
+                        </h3>
+                        <ul class="project-bullets">
+                            <li>Digital transformation agency delivering CMS and API solutions across tourism, finance, and retail clients.</li>
+                            <li>Reduced automated test execution times from 30 min to 3 min via a migration to Playwright.</li>
+                            <li>Administrated and stabilized Jenkins CI infrastructure across QA teams.</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span>Playwright</span>
+                            <span>Selenium</span>
+                            <span>Jenkins</span>
+                            <span>API Testing</span>
+                            <span>Java</span>
+                            <span>Drupal</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card fade-in">
+                        <div class="project-card-meta">
+                            <span class="project-tenure">Sept. 2020 &mdash; Feb. 2022</span>
+                            <span class="project-location">Overland Park, KS</span>
+                        </div>
+                        <h3>Retail Success
+                            <span class="project-role">Quality Assurance Engineer</span>
+                        </h3>
+                        <ul class="project-bullets">
+                            <li>Mobile and web commerce platform development organization.</li>
+                            <li>Designed test automation framework and critical coverage for e-commerce mobile app.</li>
+                            <li>Validated API contracts, queried records with SQL, and intercepted network traffic for review.</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span>Appium</span>
+                            <span>C#</span>
+                            <span>SQL</span>
+                            <span>AWS</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="contact-content fade-in">
+                    <h2 class="contact-title">Let's Connect</h2>
+                    <p class="contact-description">
+                        Ready to discuss quality assurance, test automation, or infrastructure solutions?
+                        I'm always open to connecting with fellow engineers and exploring new opportunities.
+                    </p>
+                    <a href="https://www.linkedin.com/in/kaleblucas/" target="_blank" rel="noopener noreferrer" class="contact-email">my linkedin</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>Built with precision and attention to detail</p>
+                <p class="footer-year">&copy; 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
