@@ -1,0 +1,418 @@
+/* ─── Tool Page: Navbar ─────────────────────────────────────────────────────
+   The navbar is already position:fixed in styles.css — it doesn't scroll.
+   On tool pages we want it fully transparent (blends into the page gradient)
+   with no frosted glass, no border, no backdrop blur — even when .scrolled
+   is present on the element.
+────────────────────────────────────────────────────────────────────────────── */
+body:has(.tool-main) .navbar {
+    position: absolute !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom-color: transparent !important;
+}
+
+/* Nav logo: always visible, never underlined on tool pages */
+body:has(.tool-main) .nav-logo {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    text-decoration: none;
+}
+
+/* ─── Tool Page Layout ───────────────────────────────────────────────────────── */
+.tool-main {
+    padding-top: calc(var(--space-16) + var(--space-12));
+    padding-bottom: var(--space-20);
+    min-height: 100vh;
+}
+
+.tool-header {
+    margin-bottom: var(--space-8);
+}
+
+.tool-label {
+    font-size: var(--text-sm);
+    color: var(--ink-muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-bottom: var(--space-3);
+}
+
+.tool-title {
+    font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+    font-weight: 300;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-bottom: var(--space-4);
+}
+
+.tool-description {
+    font-size: var(--text-lg);
+    color: var(--ink-mid);
+    font-weight: 300;
+}
+
+/* ─── Status Bar ─────────────────────────────────────────────────────────────── */
+.jf-status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-3) var(--space-5);
+    border: 1px solid var(--thistle-border);
+    background: var(--bg-surface);
+    margin-bottom: var(--space-3);
+    font-size: var(--text-xs);
+}
+
+.jf-status-left {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.jf-status-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.jf-status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: background 0.3s ease;
+}
+
+.jf-status-idle    { background: var(--ink-muted); }
+.jf-status-ok      { background: #4caf76; }
+.jf-status-error   { background: var(--accent); }
+
+.jf-status-text {
+    font-size: var(--text-xs);
+    color: var(--ink-mid);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+}
+
+.jf-meta-chip {
+    font-size: var(--text-xs);
+    color: var(--ink-muted);
+    letter-spacing: 0.08em;
+    font-weight: 400;
+    padding: var(--space-1) var(--space-3);
+    border: 1px solid var(--thistle-border);
+    background: var(--bg-surface);
+}
+
+/* ─── Editor Row ─────────────────────────────────────────────────────────────── */
+.jf-editor-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+    min-width: 0;
+}
+
+/* ─── Panel ──────────────────────────────────────────────────────────────────── */
+.jf-panel {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--thistle-border);
+    background: var(--bg-surface);
+    transition: border-color 0.3s ease;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.jf-panel:focus-within {
+    border-color: var(--thistle-border-mid);
+}
+
+.jf-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-3) var(--space-5);
+    border-bottom: 1px solid var(--thistle-border);
+    flex-shrink: 0;
+}
+
+.jf-panel-label {
+    font-size: var(--text-xs);
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 500;
+}
+
+.jf-panel-actions {
+    display: flex;
+    gap: var(--space-2);
+}
+
+/* ─── Buttons ────────────────────────────────────────────────────────────────── */
+.jf-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--text-xs);
+    font-weight: 400;
+    color: var(--ink-mid);
+    background: transparent;
+    border: 1px solid var(--thistle-border);
+    padding: var(--space-1) var(--space-3);
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.jf-btn:hover {
+    color: var(--ink);
+    border-color: var(--thistle-border-mid);
+    background: var(--bg-surface-hover);
+}
+
+.jf-btn:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.jf-btn.active {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* ─── Textarea ───────────────────────────────────────────────────────────────── */
+.jf-textarea {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--text-sm);
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--ink);
+    background: transparent;
+    border: none;
+    resize: none;
+    width: 100%;
+    min-height: 546px;
+    max-height: 546px;
+    overflow-y: auto;
+    padding: var(--space-5);
+    outline: none;
+    caret-color: var(--accent);
+    box-sizing: border-box;
+}
+
+.jf-textarea::placeholder {
+    color: var(--ink-muted);
+    opacity: 0.6;
+}
+
+/* ─── Output ─────────────────────────────────────────────────────────────────── */
+.jf-output {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--text-sm);
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--ink-mid);
+    background: transparent;
+    padding: var(--space-5);
+    margin: 0;
+    min-height: 546px;
+    max-height: 546px;
+
+    /* Horizontal scroll instead of overflow blowout */
+    white-space: pre;
+    overflow-x: auto;
+    overflow-y: auto;
+    word-break: normal;
+    word-wrap: normal;
+
+    max-width: 100%;
+    box-sizing: border-box;
+
+    outline: none;
+    caret-color: var(--accent);
+}
+
+.jf-output:focus {
+    box-shadow: inset 0 0 0 1px var(--thistle-border-mid);
+}
+
+/* Syntax highlighting */
+.jf-key    { color: var(--ink); font-weight: 500; }
+.jf-str    { color: #5a7a5c; }
+.jf-num    { color: #6b52a0; }
+.jf-bool   { color: var(--accent); }
+.jf-null   { color: var(--ink-muted); font-style: italic; }
+.jf-punct  { color: var(--ink-muted); }
+
+/* ─── Error Panel ────────────────────────────────────────────────────────────── */
+.jf-error-panel {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-5);
+    border: 1px solid var(--accent);
+    background: rgba(181, 41, 74, 0.06);
+    font-size: var(--text-sm);
+    color: var(--accent);
+    font-weight: 300;
+    margin-bottom: var(--space-3);
+    letter-spacing: 0.02em;
+}
+
+.jf-error-icon {
+    flex-shrink: 0;
+    font-size: var(--text-base);
+}
+
+/* ─── Tree Explorer ──────────────────────────────────────────────────────────── */
+.jf-tree-wrap {
+    border: 1px solid var(--thistle-border);
+    background: var(--bg-surface);
+    margin-top: var(--space-3);
+}
+
+.jf-tree {
+    padding: var(--space-5);
+    font-size: var(--text-sm);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: auto;
+}
+
+.jf-tree ul {
+    list-style: none;
+    margin: 0;
+    padding-left: var(--space-6);
+    border-left: 1px solid var(--thistle-border);
+}
+
+.jf-tree li {
+    position: relative;
+    padding: 1px 0;
+}
+
+.jf-tree-node {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    cursor: default;
+}
+
+.jf-tree-node.collapsible {
+    cursor: pointer;
+}
+
+.jf-tree-node.collapsible:hover .jf-tree-key {
+    color: var(--accent);
+}
+
+.jf-tree-toggle {
+    font-size: var(--text-xs);
+    color: var(--ink-muted);
+    user-select: none;
+    width: 10px;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.jf-tree-key {
+    color: var(--ink);
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.jf-tree-colon {
+    color: var(--ink-muted);
+}
+
+.jf-tree-type {
+    font-size: var(--text-xs);
+    color: var(--ink-muted);
+    letter-spacing: 0.08em;
+    margin-left: var(--space-2);
+}
+
+.jf-tree-value { }
+.jf-tree-value.jf-str  { color: #5a7a5c; }
+.jf-tree-value.jf-num  { color: #6b52a0; }
+.jf-tree-value.jf-bool { color: var(--accent); }
+.jf-tree-value.jf-null { color: var(--ink-muted); font-style: italic; }
+
+.jf-tree-children.collapsed {
+    display: none;
+}
+
+/* ─── Utility ────────────────────────────────────────────────────────────────── */
+.hidden {
+    display: none !important;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+    .jf-editor-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .jf-textarea,
+    .jf-output {
+        min-height: 260px;
+        font-size: var(--text-xs);
+    }
+}
+
+/* ─── XML Syntax Highlighting ───────────────────────────────────────────────── */
+/*
+ * Colour roles — chosen for clear contrast separation on the thistle background:
+ *
+ *   xml-punct        muted lavender  — < > / = structural glue; visually recedes
+ *   xml-tag          cobalt blue     — element names  <foo> </foo>
+ *   xml-attr-name    warm amber      — attribute names  key=
+ *   xml-attr-val     forest green    — attribute values  "value"
+ *   xml-text         near-black      — element text content
+ *   xml-comment      slate grey      — <!-- comments -->
+ *   xml-cdata        teal            — <![CDATA[ blocks ]]>
+ *   xml-decl         warm amber      — "xml" keyword inside <?xml ?>
+ *   xml-pi           muted lavender  — processing instructions <?foo ?>
+ *   xml-pi-target    accent red      — PI target name
+ */
+.xml-punct        { color: #9585b4; }                        /* muted lavender    */
+.xml-tag          { color: #2e6da4; font-weight: 500; }      /* cobalt blue       */
+.xml-attr-name    { color: #a0660a; }                        /* warm amber        */
+.xml-attr-val     { color: #3d7a50; }                        /* forest green      */
+.xml-text         { color: var(--ink); }                     /* near-black        */
+.xml-comment      { color: #7a8799; font-style: italic; }    /* slate grey        */
+.xml-comment-tree { color: #7a8799; font-style: italic; }    /* slate grey        */
+.xml-cdata        { color: #1e7b7b; }                        /* teal              */
+.xml-decl         { color: #a0660a; }                        /* warm amber        */
+.xml-pi           { color: #9585b4; font-style: italic; }    /* muted lavender    */
+.xml-pi-target    { color: var(--accent); }                  /* accent red        */
+
+/* ─── Tool Page: Mobile Navbar ─────────────────────────────────────────────
+   Override the absolute positioning from above so the navbar scrolls with
+   the page on mobile, and goes solid when the hamburger menu is open.
+──────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    body:has(.tool-main) .navbar,
+    body:has(.tool-main) .navbar.scrolled {
+        position: sticky !important;
+        top: 0;
+    }
+
+    body:has(.tool-main) .navbar.scrolled {
+        background: rgba(198, 186, 222, 0.85) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+    }
+
+    body:has(.tool-main) .navbar.nav-open {
+        background: #C6BADE !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+}
