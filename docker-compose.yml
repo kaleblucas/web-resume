@@ -1,9 +1,9 @@
 services:
-  web-resume-prod:
+  web-resume:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: web-resume-prod
+    container_name: web-resume
     ports:
       - "8080:8080"
     restart: unless-stopped
