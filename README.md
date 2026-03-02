@@ -1,12 +1,14 @@
 # Web Resume
 
-A simple, professional web-based resume built with HTML, CSS, and JavaScript.
+A professional web-based resume built with Javalin (Java backend) and modern frontend technologies.
 
 ## Features
 
 - Clean, responsive design
 - JSON and XML formatters
 - Professional styling with custom themes
+- Lightweight Javalin backend serving static assets
+- Docker containerized for easy deployment
 
 ## Quick Start
 
@@ -22,26 +24,55 @@ A simple, professional web-based resume built with HTML, CSS, and JavaScript.
    ```
 
 3. **Access the site:**
-   - Open http://localhost:8082
+   - Open http://localhost:8080
 
 ## Development
 
-To run locally without Docker:
+### Prerequisites
+- Java 11+
+- Maven 3.6+
+- Docker (optional)
+
+### Run locally:
 ```bash
-# Serve files with any web server
-python -m http.server 8082
-# or
-npx serve -p 8082
+mvn clean package
+java -jar target/web-resume-1.0-SNAPSHOT.jar
 ```
 
-## Files
+Then open http://localhost:8080
 
-- `index.html` - Main resume page
-- `styles.css` - Primary styling
-- `script.js` - Interactive functionality
-- `*-formatter.*` - JSON/XML formatting tools
-- `docker-compose.yml` - Container configuration
+### Run with Docker:
+```bash
+docker-compose up -d --build
+```
+
+## Project Structure
+
+```
+.
+├── src/
+│   └── main/
+│       ├── java/dev/kaleblucas/resume/
+│       │   └── Main.java          # Javalin server entry point
+│       └── resources/static/
+│           ├── index.html         # Main resume page
+│           ├── styles.css         # Primary styling
+│           ├── script.js          # Interactive functionality
+│           ├── *-formatter.html   # JSON/XML formatters
+│           └── ...
+├── docker-compose.yml             # Container configuration
+├── Dockerfile                      # Docker build instructions
+├── pom.xml                        # Maven dependencies
+└── README.md
+```
+
+## Technology Stack
+
+- **Backend:** Javalin (lightweight Java web framework)
+- **Frontend:** HTML5, CSS3, JavaScript
+- **Build:** Maven
+- **Deployment:** Docker
 
 ## License
 
-MIT License - see LICENSE file for details.
+MIT License - see LICENSE file for details
