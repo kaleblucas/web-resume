@@ -23,3 +23,15 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Root static files (should only be in src/main/resources/static/)
+*.html
+*.css
+*.js
+*.svg
+!Dockerfile
+!docker-compose.yml
+!pom.xml
+!README.md
+!LICENSE
+!.gitignore
