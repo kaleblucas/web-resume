@@ -17,6 +17,7 @@
 
     const pasteBtn    = document.getElementById('jf-paste-btn');
     const clearBtn    = document.getElementById('jf-clear-btn');
+    const copyBtn     = document.getElementById('jf-copy-btn');
     const indent2Btn  = document.getElementById('jf-indent-2');
     const indent4Btn  = document.getElementById('jf-indent-4');
     const minifyBtn   = document.getElementById('jf-minify-btn');
@@ -251,6 +252,21 @@
         input.value = '';
         process();
         input.focus();
+    });
+
+    copyBtn.addEventListener('click', function () {
+        const text = output.innerText.trim();
+        if (!text) return;
+        navigator.clipboard.writeText(text).then(function () {
+            copyBtn.textContent = 'copied!';
+            setTimeout(function () { copyBtn.textContent = 'copy'; }, 1500);
+        }).catch(function () {
+            const range = document.createRange();
+            range.selectNodeContents(output);
+            const sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+        });
     });
 
     function setIndent(n) {
