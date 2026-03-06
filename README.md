@@ -80,10 +80,46 @@ docker-compose up -d --build
 └── README.md
 ```
 
+## Testing
+
+Integration tests run against an embedded Javalin server using Selenium WebDriver and TestNG:
+
+```bash
+mvn verify                           # all tests, headless Chrome
+mvn verify -Dtest.headless=false     # visible browser
+mvn verify -Dit.test=JsonFormatterIT # single class
+```
+
+Tests cover the portfolio page, JSON/XML formatters, navigation, dark mode, and REST API endpoints (68 tests total).
+
+## Project Structure
+
+```
+src/test/java/dev/kaleblucas/resume/
+├── BaseIT.java                        # Driver lifecycle, server start/stop
+├── config/
+│   ├── TestConfig.java                # System property defaults
+│   └── ServerManager.java             # Embedded Javalin lifecycle
+├── page/
+│   ├── PortfolioPage.java
+│   ├── BaseFormatterPage.java         # Shared formatter locators/actions
+│   ├── JsonFormatterPage.java
+│   ├── XmlFormatterPage.java
+│   └── component/NavbarComponent.java
+└── test/
+    ├── PortfolioIT.java
+    ├── NavigationIT.java
+    ├── DarkModeIT.java
+    ├── JsonFormatterIT.java
+    ├── XmlFormatterIT.java
+    └── ApiIT.java
+```
+
 ## Technology Stack
 
 - **Backend:** Javalin 6 (lightweight Java web framework)
 - **Serialization:** Jackson 2.17
 - **Frontend:** HTML5, CSS3, vanilla JavaScript
 - **Build:** Maven (fat JAR via maven-shade-plugin)
+- **Testing:** Selenium WebDriver 4.18, TestNG 7.9, AssertJ
 - **Deployment:** Docker

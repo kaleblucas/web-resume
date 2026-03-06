@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="WebResume IT Suite" verbose="1">
+
+    <test name="API Tests">
+        <classes>
+            <class name="dev.kaleblucas.resume.test.ApiIT"/>
+        </classes>
+    </test>
+
+    <test name="Portfolio Tests">
+        <classes>
+            <class name="dev.kaleblucas.resume.test.PortfolioIT"/>
+        </classes>
+    </test>
+
+    <test name="Navigation Tests">
+        <classes>
+            <class name="dev.kaleblucas.resume.test.NavigationIT"/>
+        </classes>
+    </test>
+
+    <test name="Dark Mode Tests">
+        <classes>
+            <class name="dev.kaleblucas.resume.test.DarkModeIT"/>
+        </classes>
+    </test>
+
+    <test name="JSON Formatter Tests">
+        <classes>
+            <class name="dev.kaleblucas.resume.test.JsonFormatterIT"/>
+        </classes>
+    </test>
+
+    <test name="XML Formatter Tests">
+        <classes>
+            <class name="dev.kaleblucas.resume.test.XmlFormatterIT"/>
+        </classes>
+    </test>
+
+</suite>
