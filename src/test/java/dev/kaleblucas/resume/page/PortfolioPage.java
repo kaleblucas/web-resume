@@ -75,6 +75,7 @@ public class PortfolioPage {
     }
 
     public String getHeroSubtitle() {
+        wait.until(d -> driver.findElement(By.tagName("body")).getAttribute("class").contains("loaded"));
         return heroSubtitle.getText();
     }
 
