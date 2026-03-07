@@ -51,14 +51,12 @@
     --space-24: 9.969rem;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap');
-
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: monospace;
     font-weight: 400;
     line-height: 1.5;
     color: var(--ink);
@@ -703,7 +701,7 @@ button:focus {
 }
 
 .nav-dropdown-toggle {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: monospace;
     font-size: var(--text-sm);
     font-weight: 300;
     color: var(--ink-mid);
@@ -832,7 +830,7 @@ button:focus {
 
 /* Quadrant letter labels */
 .disc-label {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: monospace;
     font-size: 22px;
     font-weight: 500;
     fill: var(--ink-mid);
@@ -847,7 +845,7 @@ button:focus {
 }
 
 .disc-dot-label {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: monospace;
     font-size: 10px;
     font-weight: 600;
     fill: #fff;
