@@ -1,3 +1,7 @@
+# Build output
+target/
+dependency-reduced-pom.xml
+
 # Dependencies
 node_modules/
 npm-debug.log*
@@ -25,13 +29,14 @@ Thumbs.db
 *.log
 
 # Root static files (should only be in src/main/resources/static/)
-*.html
-*.css
-*.js
-*.svg
+/*.html
+/*.css
+/*.js
+/*.svg
 !Dockerfile
 !docker-compose.yml
 !pom.xml
 !README.md
 !LICENSE
 !.gitignore
+CLAUDE.md

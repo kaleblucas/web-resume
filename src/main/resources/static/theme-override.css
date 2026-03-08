@@ -34,12 +34,16 @@ html.dark-mode .navbar.scrolled {
     border-bottom-color: var(--thistle-border) !important;
 }
 
-html.dark-mode .navbar.nav-open {
-    background: #0e0e12 !important;
-}
+/* nav-open and nav-menu backgrounds are mobile-only (hamburger menu).
+   Scoped to match the light-mode rules they override. */
+@media (max-width: 768px) {
+    html.dark-mode .navbar.nav-open {
+        background: #0e0e12 !important;
+    }
 
-html.dark-mode .nav-menu {
-    background: #0e0e12 !important;
+    html.dark-mode .nav-menu {
+        background: #0e0e12 !important;
+    }
 }
 
 html.dark-mode .hamburger span {

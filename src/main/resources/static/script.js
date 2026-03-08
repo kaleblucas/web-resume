@@ -69,11 +69,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ─── Scroll Fade-in ───────────────────────────────────────────────────────────
-const observer = new IntersectionObserver(function(entries) {
+window.fadeObserver = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
+            window.fadeObserver.unobserve(entry.target);
         }
     });
 }, {
@@ -81,7 +81,7 @@ const observer = new IntersectionObserver(function(entries) {
     rootMargin: '0px 0px -60px 0px'
 });
 
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+document.querySelectorAll('.fade-in').forEach(el => window.fadeObserver.observe(el));
 
 // ─── Hero Load Animation ──────────────────────────────────────────────────────
 window.addEventListener('load', function() {

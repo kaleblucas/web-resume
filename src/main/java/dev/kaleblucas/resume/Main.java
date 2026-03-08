@@ -1,5 +1,6 @@
 package dev.kaleblucas.resume;
 
+import dev.kaleblucas.resume.api.ResumeRoutes;
 import io.javalin.Javalin;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,8 +8,8 @@ import org.slf4j.LoggerFactory;
 /**
  * Embedded Javalin server for the web-resume portfolio.
  *
- * Serves all static HTML/CSS/JS from classpath:/static
- * No backend API endpoints — all formatting/tools run client-side.
+ * Serves static HTML/CSS/JS from classpath:/static and exposes
+ * REST endpoints under /api for resume content.
  */
 public class Main {
 
@@ -22,8 +23,10 @@ public class Main {
                 staticConfig.directory = "/static";
                 staticConfig.hostedPath = "/";
             });
-        })
-        .start(port);
+        });
+
+        ResumeRoutes.register(app);
+        app.start(port);
 
         log.info("✓ Server running on http://localhost:{}", port);
     }

@@ -4,10 +4,10 @@ A professional web-based resume built with Javalin (Java backend) and modern fro
 
 ## Features
 
-- Clean, responsive design
-- JSON and XML formatters
-- Professional styling with custom themes
-- Lightweight Javalin backend serving static assets
+- Clean, responsive design with dark mode
+- REST API serving resume content dynamically (skills, work experience)
+- JSON and XML formatter tools
+- Lightweight Javalin backend with Jackson serialization
 - Docker containerized for easy deployment
 
 ## Quick Start
@@ -29,14 +29,14 @@ A professional web-based resume built with Javalin (Java backend) and modern fro
 ## Development
 
 ### Prerequisites
-- Java 11+
+- Java 21+
 - Maven 3.6+
 - Docker (optional)
 
 ### Run locally:
 ```bash
 mvn clean package
-java -jar target/web-resume-1.0-SNAPSHOT.jar
+java -jar target/app.jar
 ```
 
 Then open http://localhost:8080
@@ -46,6 +46,13 @@ Then open http://localhost:8080
 docker-compose up -d --build
 ```
 
+## API Endpoints
+
+| Method | Path | Description |
+|--------|------|-------------|
+| GET | `/api/skills` | Skill categories with lists |
+| GET | `/api/experience` | Work experience with bullets and tech tags |
+
 ## Project Structure
 
 ```
@@ -53,26 +60,66 @@ docker-compose up -d --build
 ├── src/
 │   └── main/
 │       ├── java/dev/kaleblucas/resume/
-│       │   └── Main.java          # Javalin server entry point
+│       │   ├── Main.java                  # Javalin server entry point
+│       │   ├── api/ResumeRoutes.java      # REST route registration
+│       │   ├── data/ResumeData.java       # Static data provider
+│       │   └── model/
+│       │       ├── SkillCategory.java     # Record: name, skills
+│       │       └── Experience.java        # Record: company, role, tenure, ...
 │       └── resources/static/
-│           ├── index.html         # Main resume page
-│           ├── styles.css         # Primary styling
-│           ├── script.js          # Interactive functionality
-│           ├── *-formatter.html   # JSON/XML formatters
+│           ├── index.html                 # Main resume page
+│           ├── styles.css                 # Primary styling
+│           ├── script.js                  # Nav, scroll, dark mode, fade observer
+│           ├── resume.js                  # Fetches API and renders skills/work
+│           ├── clipboard-utils.js         # Shared clipboard helper
+│           ├── *-formatter.html/js        # JSON/XML formatters
 │           └── ...
-├── docker-compose.yml             # Container configuration
-├── Dockerfile                      # Docker build instructions
-├── pom.xml                        # Maven dependencies
+├── docker-compose.yml
+├── Dockerfile
+├── pom.xml
 └── README.md
+```
+
+## Testing
+
+Integration tests run against an embedded Javalin server using Selenium WebDriver and TestNG:
+
+```bash
+mvn verify                           # all tests, headless Chrome
+mvn verify -Dtest.headless=false     # visible browser
+mvn verify -Dit.test=JsonFormatterIT # single class
+```
+
+Tests cover the portfolio page, JSON/XML formatters, navigation, dark mode, and REST API endpoints (68 tests total).
+
+## Project Structure
+
+```
+src/test/java/dev/kaleblucas/resume/
+├── BaseIT.java                        # Driver lifecycle, server start/stop
+├── config/
+│   ├── TestConfig.java                # System property defaults
+│   └── ServerManager.java             # Embedded Javalin lifecycle
+├── page/
+│   ├── PortfolioPage.java
+│   ├── BaseFormatterPage.java         # Shared formatter locators/actions
+│   ├── JsonFormatterPage.java
+│   ├── XmlFormatterPage.java
+│   └── component/NavbarComponent.java
+└── test/
+    ├── PortfolioIT.java
+    ├── NavigationIT.java
+    ├── DarkModeIT.java
+    ├── JsonFormatterIT.java
+    ├── XmlFormatterIT.java
+    └── ApiIT.java
 ```
 
 ## Technology Stack
 
-- **Backend:** Javalin (lightweight Java web framework)
-- **Frontend:** HTML5, CSS3, JavaScript
-- **Build:** Maven
+- **Backend:** Javalin 6 (lightweight Java web framework)
+- **Serialization:** Jackson 2.17
+- **Frontend:** HTML5, CSS3, vanilla JavaScript
+- **Build:** Maven (fat JAR via maven-shade-plugin)
+- **Testing:** Selenium WebDriver 4.18, TestNG 7.9, AssertJ
 - **Deployment:** Docker
-
-## License
-
-MIT License - see LICENSE file for details
